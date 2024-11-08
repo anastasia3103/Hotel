@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.View.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace Hotel.View.Windows
         public AdministratorWindow()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(new UserListPage());
+        }
+
+        private void UsersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new UserListPage());
+        }
+
+        private void RoomsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,73 @@
+﻿<Page x:Class="Hotel.View.Pages.UserListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hotel.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="570" d:DesignWidth="1240"
+      Title="Cтраница пользователя">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="AddUserBtn" Content="Добавить пользвателя" Click="AddUserBtn_Click"
+                HorizontalAlignment="Left"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="400" />
+                
+            </Grid.ColumnDefinitions>
+            <ListView Name="UserLv" SelectionChanged="UserLv_SelectionChanged" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Имя"  DisplayMemberBinding="{Binding Fullname}"/>
+                        <GridViewColumn Header="Дата"  DisplayMemberBinding="{Binding RegistrationDate, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Информация о пользователе" FontWeight="SemiBold" Grid.ColumnSpan="3"/>
+
+                <TextBlock Grid.Row="2" Text="ФИО"/>
+                <TextBlock Grid.Row="4" Text="Логин"/>
+                <TextBlock Grid.Row="6" Text="Пароль"/>
+                <TextBlock Grid.Row="8" Text="Дата регистрации"/>
+
+
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</Page>

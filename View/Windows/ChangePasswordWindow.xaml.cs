@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hotel.AppData;
+using Hotel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,42 @@ namespace Hotel.View.Windows
 
         private void ChangePasswordBtn_Click(object sender, RoutedEventArgs e)
         {
+            ChangePassword();
+        }
 
+        public void ChangePassword()
+        {
+
+            if (string.IsNullOrEmpty(OldPasswordPb.Password)
+               || string.IsNullOrEmpty(OldPasswordPb.Password)
+               || string.IsNullOrEmpty(OldPasswordPb.Password))
+            {
+                Feedback.Error("Все поля обязательны для заполнения!Заполните каждое поле");
+            }
+
+            else if (OldPasswordPb.Password != App.currentUser.Password)
+            {
+                Feedback.Error("Неверно введен текущий пароль! Попробуйте снова");
+            }
+            else if (NewPasswordPb.Password != AcceptPasswordPb.Password)
+            {
+                Feedback.Error("Новые пароли не совпадают. Попробуйте снова");
+            }
+            else if (OldPasswordPb.Password == NewPasswordPb.Password)
+            {
+                Feedback.Error("Старые и новые пароли совпадают! Придумайте новый пароль");
+            }
+            else
+            {
+                App.currentUser.Password = NewPasswordPb.Password;
+                App.currentUser.IsActivated = true;
+
+                App.context.SaveChanges();
+
+                Feedback.Information("Пароль успешно изменен");
+
+                Close();
+            }
         }
     }
 }
