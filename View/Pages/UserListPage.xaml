@@ -15,7 +15,7 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Button Name="AddUserBtn" Content="Добавить пользвателя" Click="AddUserBtn_Click"
+        <Button Name="AddUserBtn" Content="Добавить пользователя" Click="AddUserBtn_Click"
                 HorizontalAlignment="Left"/>
 
         <Grid Grid.Row="2">
@@ -34,7 +34,7 @@
                 </ListView.View>
             </ListView>
 
-            <Grid Grid.Column="2">
+            <Grid Name="UserDetailsGrid" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
                     <RowDefinition Height="10" />
@@ -64,6 +64,17 @@
                 <TextBlock Grid.Row="4" Text="Логин"/>
                 <TextBlock Grid.Row="6" Text="Пароль"/>
                 <TextBlock Grid.Row="8" Text="Дата регистрации"/>
+
+                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Fullname}"/>
+                <TextBox Grid.Row="4" Grid.Column="2" IsReadOnly="True" Text="{Binding Login}"/>
+                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Password}"/>
+                <DatePicker Grid.Row="8" Grid.Column="2" IsHitTestVisible="False" SelectedDate="{Binding RegistrationDate}"/>
+
+                <CheckBox Grid.Row="10" Grid.ColumnSpan="3" Content="Заблокирован" IsChecked="{Binding IsBlocked}"/>
+                <CheckBox Grid.Row="12" Grid.ColumnSpan="3" Content="Сменил пароль" IsChecked="{Binding IsActivated}" IsHitTestVisible="False" />
+
+                <Button Name="SaveChangesBtn" Grid.Row="14" Grid.ColumnSpan="3" Content="Сохранить изменения" Click="SaveChangesBtn_Click"/>
+
 
 
             </Grid>

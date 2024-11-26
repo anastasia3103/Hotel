@@ -39,7 +39,10 @@ namespace Hotel.View.Windows
                 Authentication();
             }
         }
-
+        /// <summary>
+        /// Метод для валидации введенных данных.
+        /// </summary>
+        /// <returns> Возвращает труе, если данные прошли валидацию. Иначе - фолс. </returns> 
         public bool Validation()
         {
             //Если поля для ввода пароля и логина пусты
@@ -63,6 +66,9 @@ namespace Hotel.View.Windows
             return true;
         }
 
+        /// <summary>
+        ///  Метод для аутификации пользователя.
+        /// </summary>
         public void Authentication()
         {
             App.currentUser = App.context.User.FirstOrDefault(user => user.Login == LoginTb.Text && user.Password == PasswordPb.Password);
@@ -114,7 +120,9 @@ namespace Hotel.View.Windows
                 }
             }
         }
-
+        /// <summary>
+        /// Метод для блокировки пользователя по дате.
+        /// </summary>
         public void BlockingUserByDate()
         {
             foreach(var user in App.context.User)

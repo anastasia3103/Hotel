@@ -1,4 +1,6 @@
-﻿using Hotel.View.Windows;
+﻿using Hotel.AppData;
+using Hotel.Model;
+using Hotel.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +42,14 @@ namespace Hotel.View.Pages
 
         private void UserLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            UserDetailsGrid.DataContext = UserLv.SelectedItem as User;
+        }
+
+        private void SaveChangesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            App.context.SaveChanges();
+            Feedback.Information("Информация успешно изменена!");
+          
         }
     }
 }

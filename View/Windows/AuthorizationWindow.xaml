@@ -27,6 +27,6 @@
         <TextBox Name="LoginTb" Grid.Column="2"/>
         <PasswordBox Name="PasswordPb" Grid.Column="2" Grid.Row="2"/>
 
-        <Button Name="EntryBtn" Grid.Column="2" Grid.Row="4" Content="Войти" Click="EntryBtn_Click"/>
+        <Button Name="EntryBtn" Grid.Column="2" Grid.Row="4" Content="Войти" Click="EntryBtn_Click" IsDefault="True" />
     </Grid>
 </Window>
