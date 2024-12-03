@@ -34,7 +34,7 @@ namespace Hotel.View.Windows
 
         private void RoomsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new RoomListPage());
         }
     }
 }

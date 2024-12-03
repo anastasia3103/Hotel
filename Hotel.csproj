@@ -63,6 +63,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData\Feedback.cs" />
+    <Compile Include="View\Pages\RoomListPage.xaml.cs">
+      <DependentUpon>RoomListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\UserListPage.xaml.cs">
       <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\RoomListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
